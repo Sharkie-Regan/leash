@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: leash
+    runtime: docker
+    plan: free
+    envVars:
+      - key: LEASH_RECEIPT_SECRET
+        sync: false          # set a strong value in the Render dashboard
+      - key: LEASH_PAYPAL_CLIENT_ID
+        sync: false          # your PayPal sandbox app credentials
+      - key: LEASH_PAYPAL_SECRET
+        sync: false
+      - key: LEASH_PAYPAL_ENV
+        value: sandbox
+      - key: LEASH_ZAPIER_HOOK_URL
+        sync: false          # optional: Zapier catch-hook
+      - key: LEASH_LLM_PROVIDER
+        sync: false          # optional: anthropic | openai | gemini
+      - key: LEASH_LLM_KEY
+        sync: false

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leash — the trust layer for agentic commerce</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-theme-quartz-dark.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>Leash<span> 🔒</span></h1>
+    <p class="tag">The trust layer for agentic commerce — budgets, human gates, receipt chains, watchdog.</p>
+  </div>
+  <div id="health" class="health">checking…</div>
+</header>
+
+<div class="toolbar">
+  <button id="run-rex" class="primary">🐺 Run Rex (adversarial demo)</button>
+  <button id="seed-scan" class="warn">🩺 Seed drift + watchdog scan</button>
+  <button id="scan" class="ghost">🩺 Scan only</button>
+  <span class="spacer"></span>
+  <span id="stats" class="stats"></span>
+</div>
+
+<main>
+  <section class="card grid-card">
+    <h2>Payment attempts <span class="sub">(every attempt, verdict + receipt)</span></h2>
+    <div id="attempts-grid" class="ag-theme-quartz-dark"></div>
+  </section>
+
+  <aside>
+    <section class="card">
+      <h2>Human gates <span class="sub">(holds)</span></h2>
+      <div id="holds" class="stack"><p class="empty">no pending holds — the gate is calm</p></div>
+    </section>
+    <section class="card">
+      <h2>Watchdog alerts</h2>
+      <div id="alerts" class="stack"><p class="empty">no drift detected</p></div>
+    </section>
+    <section class="card">
+      <h2>Rex report</h2>
+      <div id="rex-report" class="stack"><p class="empty">run the Rex demo to see the attacks</p></div>
+    </section>
+  </aside>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <h3 id="modal-title"></h3>
+    <pre id="modal-body"></pre>
+    <button class="ghost" onclick="document.getElementById('modal').classList.add('hidden')">Close</button>
+  </div>
+</div>
+
+<footer>
+  <span id="meta"></span> · <a href="/healthz" target="_blank">/healthz</a> ·
+  Leash — PayPal AI Hackathon · deterministic gate, LLM explains, never decides
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/dist/ag-grid-community.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
